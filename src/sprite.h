@@ -8,10 +8,11 @@ struct Graphics;
 
 class Sprite {
 public:
-    Sprite(const std::string& file_path,
+    Sprite(
+            Graphics& graphics,
+            const std::string& file_path,
             int source_x, int source_y,
             int width, int height);
-    virtual ~Sprite();
     virtual void update(int) {}
 
     void draw(Graphics& graphics, int x, int y);

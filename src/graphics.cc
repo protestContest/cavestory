@@ -17,11 +17,17 @@ Graphics::Graphics() {
 }
 
 Graphics::~Graphics() {
+    for (SpriteMap::iterator iter = sprite_sheets_.begin();
+            iter != sprite_sheets_.end();
+            ++iter) {
+        SDL_FreeSurface(iter->second);
+    }
+
     SDL_FreeSurface(screen_);
 }
 
 void Graphics::blitSurface(
-        SDL_Surface* source,
+        SurfaceID source,
         SDL_Rect* source_rectangle,
         SDL_Rect* destination_rectangle) {
 
@@ -34,4 +40,13 @@ void Graphics::flip() {
 
 void Graphics::clear() {
     SDL_FillRect(screen_, NULL, 0);
+}
+
+
+Graphics::SurfaceID Graphics::loadImage(const std::string& file_path) {
+    if (sprite_sheets_.count(file_path) == 0) {
+        sprite_sheets_[file_path] = SDL_LoadBMP(file_path.c_str());
+    }
+
+    return sprite_sheets_[file_path];
 }

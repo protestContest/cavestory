@@ -9,7 +9,7 @@ struct Graphics;
 
 class Player {
 public:
-    Player(int x, int y);
+    Player(Graphics& graphics, int x, int y);
 
     void update(int elapsed_time_ms);
     void draw(Graphics& graphics);
