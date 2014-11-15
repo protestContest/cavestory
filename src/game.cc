@@ -62,6 +62,12 @@ void Game::eventLoop() {
         } else {
             player_->stopMoving();
         }
+
+        if (input.wasKeyPressed(SDLK_z)) {
+            player_->startJump();
+        } else if (input.wasKeyReleased(SDLK_z)) {
+            player_->stopJump();
+        }
         
         const int current_time_ms = SDL_GetTicks();
         update(current_time_ms - last_update_time);
