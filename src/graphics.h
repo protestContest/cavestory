@@ -15,6 +15,7 @@ public:
             SDL_Rect* destination_rectangle);
 
     void flip();
+    void clear();
 
 private:
     SDL_Surface* screen_;
