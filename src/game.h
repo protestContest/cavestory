@@ -5,6 +5,7 @@
 
 struct Player;
 struct Graphics;
+struct Map;
 
 class Game {
 public:
@@ -19,6 +20,7 @@ private:
     void draw(Graphics& graphics);
 
     boost::scoped_ptr<Player> player_;
+    boost::scoped_ptr<Map> map_;
 };
 
 #endif

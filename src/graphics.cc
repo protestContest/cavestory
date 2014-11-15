@@ -14,6 +14,7 @@ Graphics::Graphics() {
             kBitsPerPixel,
             0);
 
+    SDL_ShowCursor(SDL_DISABLE);
 }
 
 Graphics::~Graphics() {
