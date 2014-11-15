@@ -11,9 +11,11 @@ public:
     Game();
     ~Game();
 
+    static int kTileSize;
+
 private:
     void eventLoop();
-    void update();
+    void update(int elapsed_time_ms);
     void draw(Graphics& graphics);
 
     boost::scoped_ptr<Sprite> sprite_;

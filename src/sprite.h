@@ -11,13 +11,16 @@ public:
     Sprite(const std::string& file_path,
             int source_x, int source_y,
             int width, int height);
-    ~Sprite();
+    virtual ~Sprite();
+    virtual void update(int) {}
 
     void draw(Graphics& graphics, int x, int y);
 
+protected:
+    SDL_Rect source_rect_;
+
 private:
     SDL_Surface* sprite_sheet_;
-    SDL_Rect source_rect_;
 };
 
 #endif
